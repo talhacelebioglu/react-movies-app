@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import * as RiIcons from "react-icons/ri";
 
-const Input = ({ setData }) => {
+const Input = ({ setMovie }) => {
   const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
@@ -12,11 +12,11 @@ const Input = ({ setData }) => {
       .get(
         `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&include_adult=false&query=${input}`
       )
-      .then(function (response) {
+      .then((response) => {
         console.log(response);
-        setData(response.data.results);
+        setMovie(response.data.results);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
     setInput("");
