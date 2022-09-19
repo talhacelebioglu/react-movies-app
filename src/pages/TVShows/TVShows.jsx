@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
+import Input from "../../components/Input";
 import Pagination from "../../components/Pagination/Pagination";
 import "./TVShows.css";
 
@@ -26,10 +27,12 @@ const TVShows = () => {
   return (
     <div className="tv-shows container page-mt-p">
       <h1>TV Shows</h1>
-      <div className="header"></div>
+      <div className="header">
+        <Input />
+      </div>
       <div className="category-title">
         <h2>
-          TV Shows
+          İtems
           <span>(34)</span>
         </h2>
       </div>

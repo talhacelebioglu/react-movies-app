@@ -53,7 +53,7 @@ const Details = () => {
           <div className="details">
             <div className="detail-header">
               <div className="detail-title">
-                <h1>{detail.title}</h1>
+                <h1>{detail.title || detail.name}</h1>
               </div>
               <div className="detail-rating">
                 <AiOutlineStar />
@@ -91,11 +91,11 @@ const Details = () => {
                 </div>
                 <div className="info-run-time">
                   <h3>Run Time</h3>
-                  <p> {detail.runtime} minutes</p>
+                  <p> {detail.runtime || detail.episode_run_time} minutes</p>
                 </div>
                 <div className="info-release-date">
                   <h3>Release Date</h3>
-                  <p>{detail.release_date}</p>
+                  <p>{detail.release_date || detail.first_air_date}</p>
                 </div>
               </div>
             </div>

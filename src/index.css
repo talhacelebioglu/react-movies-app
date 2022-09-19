@@ -30,13 +30,17 @@ button {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .page-mt-p {
-  margin-top: 150px;
-  padding: 20px 100px;
+  margin-top: 125px;
+  padding: 20px 0px;
+}
+
+.page-mt-p h1 {
+  font-size: 2.7rem;
 }
 
 nav {
@@ -52,7 +56,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 100px;
+  padding: 20px 0px;
 }
 
 .brand svg {
