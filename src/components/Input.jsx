@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import * as RiIcons from "react-icons/ri";
 
-const Input = ({ setMovie, setTv }) => {
+const Input = ({ setTrending, setMovie, setTv }) => {
   const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
@@ -14,8 +14,9 @@ const Input = ({ setMovie, setTv }) => {
       )
       .then((response) => {
         console.log(response);
-        setMovie(response.data.results);
-        setTv(response.data.results);
+        setTrending(response.data.results);
+        // setMovie(response.data.results);
+        // setTv(response.data.results);
       })
       .catch((error) => {
         console.log(error);

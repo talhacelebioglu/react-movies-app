@@ -6,18 +6,20 @@ import Pagination from "../../components/Pagination/Pagination";
 import axios from "axios";
 
 const Home = () => {
-  const [movie, setMovie] = useState([]);
+  const [trending, setTrending] = useState([]);
+  const [totalResults, setTotalResults] = useState();
   const [page, setPage] = useState(1);
 
   //Movies
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
+        `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
       )
       .then((response) => {
         console.log(response);
-        setMovie(response.data.results);
+        setTrending(response.data.results);
+        setTotalResults(response.data.total_results);
       })
       .catch((error) => {
         console.log(error);
@@ -26,8 +28,9 @@ const Home = () => {
 
   return (
     <div className="home container page-mt-p">
+      <h1>Trending</h1>
       <div className="header">
-        <Input setMovie={setMovie} />
+        <Input setTrending={setTrending} />
         <div className="control-wrapper">
           <div className="control-buttons">
             <button>All</button>
@@ -39,11 +42,11 @@ const Home = () => {
       <div className="category-title">
         <h2>
           All
-          <span>(34)</span>
+          <span>({totalResults})</span>
         </h2>
       </div>
       <div className="lists-container">
-        <Card movie={movie} />
+        <Card trending={trending} />
       </div>
       <Pagination page={page} setPage={setPage} />
     </div>

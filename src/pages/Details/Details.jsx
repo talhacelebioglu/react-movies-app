@@ -67,7 +67,7 @@ const Details = () => {
                 {detail.poster_path && (
                   <img
                     src={"https://image.tmdb.org/t/p/w500" + detail.poster_path}
-                    alt={detail.original_title}
+                    alt={detail.original_title || detail.original_name}
                   />
                 )}
               </div>
@@ -78,8 +78,13 @@ const Details = () => {
                 </div>
                 <div className="info-country">
                   <h3>Country</h3>
-                  {detail.production_countries && (
-                    <p>{detail.production_countries[0].iso_3166_1}</p>
+                  {detail.production_countries &&
+                  detail.production_countries.length > 0 ? (
+                    detail.production_countries.map((country, index) => (
+                      <span key={index}>{country.iso_3166_1}</span>
+                    ))
+                  ) : (
+                    <span>Unknown</span>
                   )}
                 </div>
                 <div className="info-genres">

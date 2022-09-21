@@ -84,3 +84,7 @@
 .info-genres span:not(:first-of-type)::before {
   content: " / ";
 }
+
+.info-country span:not(:first-of-type)::before {
+  content: " / ";
+}

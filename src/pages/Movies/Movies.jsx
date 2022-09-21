@@ -7,6 +7,7 @@ import "./Movies.css";
 
 const Movies = () => {
   const [movie, setMovie] = useState([]);
+  const [totalResults, setTotalResults] = useState();
   const [page, setPage] = useState(1);
 
   //Movies
@@ -18,6 +19,7 @@ const Movies = () => {
       .then((response) => {
         console.log(response);
         setMovie(response.data.results);
+        setTotalResults(response.data.total_results);
       })
       .catch((error) => {
         console.log(error);
@@ -33,7 +35,7 @@ const Movies = () => {
       <div className="category-title">
         <h2>
           İtems
-          <span>(34)</span>
+          <span>({totalResults})</span>
         </h2>
       </div>
       <div className="lists-container">

@@ -7,6 +7,7 @@ import "./TVShows.css";
 
 const TVShows = () => {
   const [tv, setTv] = useState([]);
+  const [totalResults, setTotalResults] = useState();
   const [page, setPage] = useState(1);
 
   //TV Shows
@@ -18,6 +19,7 @@ const TVShows = () => {
       .then((response) => {
         console.log(response);
         setTv(response.data.results);
+        setTotalResults(response.data.total_results);
       })
       .catch((error) => {
         console.log(error);
@@ -33,7 +35,7 @@ const TVShows = () => {
       <div className="category-title">
         <h2>
           İtems
-          <span>(34)</span>
+          <span>({totalResults})</span>
         </h2>
       </div>
       <div className="lists-container">
