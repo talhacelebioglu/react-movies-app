@@ -36,7 +36,7 @@ button {
 
 .page-mt-p {
   margin-top: 125px;
-  padding: 20px 0px;
+  padding: 25px;
 }
 
 .page-mt-p h1 {
@@ -56,7 +56,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0px;
+  padding: 25px;
 }
 
 .brand svg {
@@ -77,4 +77,11 @@ nav {
 
 .menu a:hover {
   color: #7303c0;
+}
+
+/* media */
+@media (max-width: 768px) {
+  .lists-container {
+    justify-content: center;
+  }
 }

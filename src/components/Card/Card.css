@@ -46,6 +46,20 @@
   height: 20px;
 }
 
+.card-media-type {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  background-color: #0d0d0d;
+  border-radius: 0 0 0 15px;
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  color: #cccccc;
+  font-size: 1.1rem;
+}
+
 .card-image,
 .card img {
   width: 100%;

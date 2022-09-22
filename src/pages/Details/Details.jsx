@@ -41,7 +41,7 @@ const Details = () => {
   return (
     <>
       {detail && (
-        <div className="details-page container">
+        <div className="details-page container page-mt-p">
           <div className="background-top">
             {detail.backdrop_path && (
               <img

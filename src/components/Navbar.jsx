@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import * as RiIcons from "react-icons/ri";
+import { Twirl as Hamburger } from "hamburger-react";
 
 const Navbar = () => {
+  const [show, setShow] = useState(false);
+
   return (
     <nav>
       <div className="navbar container">
+        {/* <Hamburger
+          direction="right"
+          toggled={show}
+          toggle={setShow}
+          onToggle={(toggled) => {
+            if (toggled) {
+              // open a menu
+            } else {
+              // close a menu
+            }
+          }}
+        /> */}
         <NavLink to="/">
           <div className="brand">
             <RiIcons.RiMovie2Line />

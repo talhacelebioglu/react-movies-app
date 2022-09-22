@@ -1,8 +1,3 @@
-.details-page {
-  margin-top: 150px;
-  padding: 20px 100px;
-}
-
 .background-top {
   border-radius: 30px;
   overflow: hidden;
@@ -34,7 +29,7 @@
 }
 
 .detail-title h1 {
-  text-align: center;
+  font-size: 2rem;
 }
 
 .detail-rating {
@@ -87,4 +82,22 @@
 
 .info-country span:not(:first-of-type)::before {
   content: " / ";
+}
+
+/* media */
+@media (max-width: 768px) {
+  .background-top img {
+    height: 100%;
+  }
+  .detail-content {
+    flex-direction: column;
+  }
+  .detail-img {
+    display: none;
+  }
+  .detail-info {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }
