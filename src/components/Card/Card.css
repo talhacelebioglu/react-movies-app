@@ -83,3 +83,18 @@
   font-size: 1.1rem;
   font-weight: bold;
 }
+
+/* media */
+@media (max-width: 768px) {
+  .card-wrapper {
+    width: 155px;
+    height: 300px;
+  }
+  .card-image,
+  .card img {
+    height: 210px;
+  }
+  .card-info {
+    font-size: 1rem;
+  }
+}
