@@ -79,6 +79,10 @@
   margin-left: 5px;
 }
 
+button.active {
+  color: var(--white);
+}
+
 /* media */
 @media (min-width: 768px) {
   .category-title h2 {

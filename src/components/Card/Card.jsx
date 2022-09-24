@@ -5,7 +5,7 @@ import { RiTvLine } from "react-icons/ri";
 import { BiMovie } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-const Card = ({ trending, tv, movie }) => {
+const Card = ({ filtered, tv, movie }) => {
   return (
     <>
       {movie &&
@@ -48,8 +48,8 @@ const Card = ({ trending, tv, movie }) => {
             </div>
           </Link>
         ))}
-      {trending &&
-        trending.map((item) => (
+      {filtered &&
+        filtered.map((item) => (
           <Link to={`/${item.media_type}/${item.id}`} key={item.id}>
             <div className="card-wrapper">
               <div className="card">
