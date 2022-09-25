@@ -55,7 +55,7 @@ const Card = ({ filtered, tv, movie }) => {
               <div className="card">
                 <div className="card-rating">
                   <AiOutlineStar />
-                  <p>{item.vote_average.toFixed(1)}</p>
+                  {item.vote_average && <p>{item.vote_average.toFixed(1)}</p>}
                 </div>
                 <div className="card-media-type">
                   {item.media_type === "tv" ? <RiTvLine /> : <BiMovie />}

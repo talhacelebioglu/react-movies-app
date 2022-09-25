@@ -10,6 +10,7 @@ const Home = () => {
   const [filtered, setFiltered] = useState([]);
   const [totalResults, setTotalResults] = useState();
   const [page, setPage] = useState(1);
+  const [filteredTitle, setFilteredTitle] = useState("All");
 
   //Trending
   useEffect(() => {
@@ -37,21 +38,21 @@ const Home = () => {
     setFiltered(newMedia);
   };
 
-  const filteredTitle = (media_type) => {
-    if (media_type === "All") {
-      return "All";
-    } else if (media_type === "movie") {
-      return "Movies";
-    } else if (media_type === "tv") {
-      return "Tv";
-    }
-  };
+  // const filteredTitle = (media_type) => {
+  //   if (media_type === "All") {
+  //     return "All";
+  //   } else if (media_type === "movie") {
+  //     return "Movies";
+  //   } else if (media_type === "tv") {
+  //     return "Tv";
+  //   }
+  // };
 
   return (
     <div className="home container page-mt-p">
       <h1>Trending</h1>
       <div className="header">
-        <Input setTrending={setTrending} />
+        <Input setFiltered={setFiltered} />
         <div className="control-wrapper">
           <div className="control-buttons">
             <button

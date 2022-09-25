@@ -6,21 +6,11 @@ import { Twirl as Hamburger } from "hamburger-react";
 const Navbar = () => {
   const [show, setShow] = useState(false);
 
+  const handleClick = () => setShow(!show);
+
   return (
     <nav>
       <div className="navbar container">
-        {/* <Hamburger
-          direction="right"
-          toggled={show}
-          toggle={setShow}
-          onToggle={(toggled) => {
-            if (toggled) {
-              // open a menu
-            } else {
-              // close a menu
-            }
-          }}
-        /> */}
         <NavLink to="/">
           <div className="brand">
             <RiIcons.RiMovie2Line />
@@ -41,6 +31,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        {/* <Hamburger direction="left" onClick={handleClick} /> */}
       </div>
     </nav>
   );
