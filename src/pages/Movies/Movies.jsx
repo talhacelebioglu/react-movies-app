@@ -9,6 +9,11 @@ const Movies = () => {
   const [movie, setMovie] = useState([]);
   const [totalResults, setTotalResults] = useState();
   const [page, setPage] = useState(1);
+  const [inputMovies, setInputMovies] = useState(false);
+
+  useEffect(() => {
+    setInputMovies(true);
+  }, [setInputMovies]);
 
   //Movies
   useEffect(() => {
@@ -30,7 +35,7 @@ const Movies = () => {
     <div className="movies container page-mt-p">
       <h1>Movies</h1>
       <div className="header">
-        <Input />
+        <Input inputMovies={inputMovies} setMovie={setMovie} />
       </div>
       <div className="category-title">
         <h2>

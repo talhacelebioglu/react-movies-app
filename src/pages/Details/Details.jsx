@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import "./Details.css";
 import { AiOutlineStar } from "react-icons/ai";
 
@@ -8,35 +8,44 @@ const Details = () => {
   const [detail, setDetail] = useState([]);
   const { id } = useParams();
 
+  const location = useLocation();
+  const thisTv = location.pathname.startsWith("/tv");
+
   //Movies
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
-      )
-      .then((response) => {
-        console.log(response);
-        setDetail(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [id]);
+    if (!thisTv) {
+      console.log("movie");
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+        )
+        .then((response) => {
+          console.log(response);
+          setDetail(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [id, thisTv]);
 
   //TV Shows
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
-      )
-      .then((response) => {
-        console.log(response);
-        setDetail(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [id]);
+    if (thisTv) {
+      console.log("tv");
+      axios
+        .get(
+          `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+        )
+        .then((response) => {
+          console.log(response);
+          setDetail(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [id, thisTv]);
 
   return (
     <>

@@ -11,6 +11,11 @@ const Home = () => {
   const [totalResults, setTotalResults] = useState();
   const [page, setPage] = useState(1);
   const [filteredTitle, setFilteredTitle] = useState("All");
+  const [inputHome, setInputHome] = useState(false);
+
+  useEffect(() => {
+    setInputHome(true);
+  }, [setInputHome]);
 
   //Trending
   useEffect(() => {
@@ -38,13 +43,13 @@ const Home = () => {
     setFiltered(newMedia);
   };
 
-  // const filteredTitle = (media_type) => {
+  // const filteredCategories = (media_type) => {
   //   if (media_type === "All") {
-  //     return "All";
+  //     return setFilteredTitle("All");
   //   } else if (media_type === "movie") {
-  //     return "Movies";
+  //     return setFilteredTitle("Movies");
   //   } else if (media_type === "tv") {
-  //     return "Tv";
+  //     return setFilteredTitle("Tv Shows");
   //   }
   // };
 
@@ -52,17 +57,36 @@ const Home = () => {
     <div className="home container page-mt-p">
       <h1>Trending</h1>
       <div className="header">
-        <Input setFiltered={setFiltered} />
+        <Input setFiltered={setFiltered} inputHome={inputHome} />
         <div className="control-wrapper">
           <div className="control-buttons">
             <button
               className={filteredTitle === "All" ? "active" : ""}
-              onClick={() => filterMedia("All")}
+              onClick={() => {
+                filterMedia("All");
+                setFilteredTitle("All");
+              }}
             >
               All
             </button>
-            <button onClick={() => filterMedia("movie")}>Movies</button>
-            <button onClick={() => filterMedia("tv")}>TV Shows</button>
+            <button
+              className={filteredTitle === "Movies" ? "active" : ""}
+              onClick={() => {
+                filterMedia("movie");
+                setFilteredTitle("Movies");
+              }}
+            >
+              Movies
+            </button>
+            <button
+              className={filteredTitle === "Tv Shows" ? "active" : ""}
+              onClick={() => {
+                filterMedia("tv");
+                setFilteredTitle("Tv Shows");
+              }}
+            >
+              TV Shows
+            </button>
           </div>
         </div>
       </div>

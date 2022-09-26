@@ -9,6 +9,11 @@ const TVShows = () => {
   const [tv, setTv] = useState([]);
   const [totalResults, setTotalResults] = useState();
   const [page, setPage] = useState(1);
+  const [inputTv, setInputTv] = useState(false);
+
+  useEffect(() => {
+    setInputTv(true);
+  }, [setInputTv]);
 
   //TV Shows
   useEffect(() => {
@@ -30,7 +35,7 @@ const TVShows = () => {
     <div className="tv-shows container page-mt-p">
       <h1>TV Shows</h1>
       <div className="header">
-        <Input />
+        <Input setTv={setTv} inputTv={inputTv} />
       </div>
       <div className="category-title">
         <h2>
