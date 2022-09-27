@@ -80,6 +80,10 @@ nav {
   color: #7303c0;
 }
 
+.hamburger-react {
+  display: none;
+}
+
 /* media */
 @media (max-width: 768px) {
   .lists-container {
@@ -88,5 +92,25 @@ nav {
   }
   .page-mt-p h1 {
     font-size: 2rem;
+  }
+  .hamburger-react {
+    display: block;
+  }
+  .menu {
+    display: none;
+  }
+  .menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    position: absolute;
+    top: 95px;
+    right: 0;
+    width: 100%;
+    min-height: 25vh;
+    background: #0f0c29;
+    border-top: 1px solid;
   }
 }

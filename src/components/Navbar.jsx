@@ -6,8 +6,6 @@ import { Twirl as Hamburger } from "hamburger-react";
 const Navbar = () => {
   const [show, setShow] = useState(false);
 
-  const handleClick = () => setShow(!show);
-
   return (
     <nav>
       <div className="navbar container">
@@ -18,20 +16,26 @@ const Navbar = () => {
         </NavLink>
         <div className="menu-wrapper">
           <div className="menu-container">
-            <ul className="menu">
+            <ul className={show ? "menu active" : "menu"}>
               <li>
-                <NavLink to="/movies">Movies</NavLink>
+                <NavLink to="/movies" onClick={() => setShow(!show)}>
+                  Movies
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/tvshows">TV Shows</NavLink>
+                <NavLink to="/tvshows" onClick={() => setShow(!show)}>
+                  TV Shows
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/suggest">Suggest</NavLink>
+                <NavLink to="/suggest" onClick={() => setShow(!show)}>
+                  Suggest
+                </NavLink>
               </li>
             </ul>
           </div>
         </div>
-        {/* <Hamburger direction="left" onClick={handleClick} /> */}
+        <Hamburger direction="right" toggled={show} toggle={setShow} />
       </div>
     </nav>
   );
