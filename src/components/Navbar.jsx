@@ -35,7 +35,12 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <Hamburger direction="right" toggled={show} toggle={setShow} />
+        <Hamburger
+          size={25}
+          direction="right"
+          toggled={show}
+          toggle={setShow}
+        />
       </div>
     </nav>
   );
